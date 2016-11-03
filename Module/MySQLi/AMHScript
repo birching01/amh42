@@ -9,7 +9,7 @@ function amh_module_info()
 		echo 'AMH-ModuleButton: 安装/卸载';
 		echo 'AMH-ModuleDate: 2014-12-20';
 		echo 'AMH-ModuleAdmin: ';
-		echo 'AMH-ModuleWebSite: http://git.oschina.net/renhao/renhao';
+		echo 'AMH-ModuleWebSite: https://github.com/birching01/amh42';
 		echo 'AMH-ModuleScriptBy: rose';
 }
 
@@ -20,7 +20,7 @@ function amh_module_install()
 				exit;
 		else
 				cd /usr/local/;
-				wget http://git.oschina.net/renhao/renhao/raw/master/amh-4.2/Module/file/mysqli.tar.gz;
+				wget https://raw.githubusercontent.com/birching01/amh42/master/Module/file/mysqli.tar.gz;
 				tar -zxvf mysqli.tar.gz;
 				cd mysqli;
 				/usr/local/php/bin/phpize;

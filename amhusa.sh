@@ -24,8 +24,8 @@ AMSVersion='ams-1.5.0107-02';
 AMHVersion='amh-4.2';
 LibiconvVersion='libiconv-1.14';
 MysqlVersion='mysql-5.5.34';
-PhpVersion='php-5.3.27';
-NginxVersion='nginx-1.9.3';
+PhpVersion='php-5.6.14';
+NginxVersion='nginx-1.9.5';
 PureFTPdVersion='pure-ftpd-1.0.36';
 url='raw.githubusercontent.com/birching01/amh42/master/down';
 
@@ -201,7 +201,7 @@ function InstallReady()
 	chmod +Rw /root/amh;
 
 	cd $AMHDir/packages;
-	wget https://${url}/conf.zip;
+	wget https://${url}/conf5.6.zip;
 	unzip conf.zip -d $AMHDir/conf;
 }
 

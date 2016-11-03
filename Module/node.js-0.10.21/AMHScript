@@ -9,7 +9,7 @@ function amh_module_info()
 		echo 'AMH-ModuleButton: 安装/卸载';
 		echo 'AMH-ModuleDate: 2014-12-20';
 		echo 'AMH-ModuleAdmin: ';
-		echo 'AMH-ModuleWebSite: http://git.oschina.net/renhao/renhao';
+		echo 'AMH-ModuleWebSite: https://github.com/birching01/amh42';
 		echo 'AMH-ModuleIco: http://amysql.com/View/images/amh_module/node.js.gif';
 		echo 'AMH-ModuleScriptBy: Jack';
 }
