@@ -27,7 +27,7 @@ MysqlVersion='mysql-5.5.34';
 PhpVersion='php-5.3.27';
 NginxVersion='nginx-1.9.3';
 PureFTPdVersion='pure-ftpd-1.0.36';
-url='git.oschina.net/renhao/amh/raw/master/';
+url='raw.githubusercontent.com/birching01/amh42/master/down';
 
 # Function List	*****************************************************************************
 function CheckSystem()
@@ -201,7 +201,7 @@ function InstallReady()
 	chmod +Rw /root/amh;
 
 	cd $AMHDir/packages;
-	wget http://${url}/conf.zip;
+	wget https://${url}/conf.zip;
 	unzip conf.zip -d $AMHDir/conf;
 }
 
@@ -273,7 +273,7 @@ function InstallMysql()
 {
 	# [dir] /usr/local/mysql/
 	echo "[${MysqlVersion} Installing] ************************************************** >>";
-	Downloadfile "${MysqlVersion}.tar.gz" "http://${url}/${MysqlVersion}.tar.gz";
+	Downloadfile "${MysqlVersion}.tar.gz" "https://${url}/${MysqlVersion}.tar.gz";
 	rm -rf $AMHDir/packages/untar/$MysqlVersion;
 	echo "tar -zxf ${MysqlVersion}.tar.gz ing...";
 	tar -zxf $AMHDir/packages/$MysqlVersion.tar.gz -C $AMHDir/packages/untar;
@@ -475,7 +475,7 @@ function InstallAMH()
 {
 	# [dir] /home/wwwroot/index/web
 	echo "[${AMHVersion} Installing] ************************************************** >>";
-	Downloadfile "${AMHVersion}.tar.gz" "http://${url}/${AMHVersion}.tar.gz";
+	Downloadfile "${AMHVersion}.tar.gz" "https://${url}/${AMHVersion}.tar.gz";
 	rm -rf $AMHDir/packages/untar/$AMHVersion;
 	echo "tar -xf ${AMHVersion}.tar.gz ing...";
 	tar -xf $AMHDir/packages/$AMHVersion.tar.gz -C $AMHDir/packages/untar;
@@ -511,7 +511,7 @@ function InstallAMS()
 {
 	# [dir] /home/wwwroot/index/web/ams
 	echo "[${AMSVersion} Installing] ************************************************** >>";
-	Downloadfile "${AMSVersion}.tar.gz" "http://${url}/${AMSVersion}.tar.gz";
+	Downloadfile "${AMSVersion}.tar.gz" "https://${url}/${AMSVersion}.tar.gz";
 	rm -rf $AMHDir/packages/untar/$AMSVersion;
 	echo "tar -xf ${AMSVersion}.tar.gz ing...";
 	tar -xf $AMHDir/packages/$AMSVersion.tar.gz -C $AMHDir/packages/untar;
@@ -590,9 +590,9 @@ echo '================================================================';
 	echo '';
 	echo "Start time: ${StartDate}";
 	echo "Completion time: $(date) (Use: $[($(date +%s)-StartDateSecond)/60] minute)";
-	echo 'More help please visit:https://git.oschina.net/renhao/amh';
+	echo 'More help please visit:https://github.com/birching01/amh42';
 echo '================================================================';
 else
 	echo 'Sorry, Failed to install AMH ++';
-	echo 'Please contact us: https://git.oschina.net/renhao/amh';
+	echo 'Please contact us: https://github.com/birching01/amh42';
 fi;

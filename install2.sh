@@ -12,8 +12,8 @@ fi
 clear;
 CopyrightLogo='
                                       AMH ++
-                            Powered by renhao 2014-2016
-                https://git.oschina.net/renhao/amh All Rights Reserved
+                                    2014-2016
+               https://github.com/birching01/amh42 All Rights Reserved
 ===================================================================================';
 echo "$CopyrightLogo";
 #地点
@@ -22,11 +22,11 @@ echo "Please select your VPS location: "
         case $loc in
             "cn")
 			     echo "you choose is cn"
-				 wget http://git.oschina.net/renhao/amh/raw/master/amhcn.sh && chmod 775 amhcn.sh && ./amhcn.sh 2>&1 | tee amhcn.log;
+				 wget  https://raw.githubusercontent.com/birching01/amh42/master/amhcn.sh && chmod 775 amhcn.sh && ./amhcn.sh 2>&1 | tee amhcn.log;
 				 ;;
 			"usa")
 			     echo "you choose is usa"
-				 wget http://git.oschina.net/renhao/amh/raw/master/amhusa.sh && chmod 775 amhusa.sh && ./amhusa.sh 2>&1 | tee amhusa.log;
+				 wget  https://raw.githubusercontent.com/birching01/amh42/master/amhusa.sh && chmod 775 amhusa.sh && ./amhusa.sh 2>&1 | tee amhusa.log;
                  ;;
 			*)
 			     echo "you choose is error"

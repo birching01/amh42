@@ -26,7 +26,7 @@ MysqlVersion='mysql-5.5.34';
 PhpVersion='php-5.6.14';
 NginxVersion='nginx-1.9.5';
 PureFTPdVersion='pure-ftpd-1.0.36';
-url='git.oschina.net/renhao/amh/raw/master/down';
+url='raw.githubusercontent.com/birching01/amh42/master/down';
 
 
 # Function List	*****************************************************************************
@@ -189,7 +189,7 @@ function InstallReady()
 	chmod +Rw /root/amh;
 
 	cd $AMHDir/packages;
-	wget http://${url}/conf5.6.zip;
+	wget https://${url}/conf5.6.zip;
 	unzip conf5.6.zip -d $AMHDir/conf;
 }
 
@@ -240,7 +240,7 @@ function Uninstall()
 function InstallLibiconv()
 {
 	echo "[${LibiconvVersion} Installing] ************************************************** >>";
-	Downloadfile "${LibiconvVersion}.tar.gz" "http://${url}/${LibiconvVersion}.tar.gz";
+	Downloadfile "${LibiconvVersion}.tar.gz" "https://${url}/${LibiconvVersion}.tar.gz";
 	rm -rf $AMHDir/packages/untar/$LibiconvVersion;
 	echo "tar -zxf ${LibiconvVersion}.tar.gz ing...";
 	tar -zxf $AMHDir/packages/$LibiconvVersion.tar.gz -C $AMHDir/packages/untar;
@@ -261,7 +261,7 @@ function InstallMysql()
 {
 	# [dir] /usr/local/mysql/
 	echo "[${MysqlVersion} Installing] ************************************************** >>";
-	Downloadfile "${MysqlVersion}.tar.gz" "http://${url}/${MysqlVersion}.tar.gz";
+	Downloadfile "${MysqlVersion}.tar.gz" "https://${url}/${MysqlVersion}.tar.gz";
 	rm -rf $AMHDir/packages/untar/$MysqlVersion;
 	echo "tar -zxf ${MysqlVersion}.tar.gz ing...";
 	tar -zxf $AMHDir/packages/$MysqlVersion.tar.gz -C $AMHDir/packages/untar;
@@ -328,7 +328,7 @@ function InstallPhp()
 {
 	# [dir] /usr/local/php
 	echo "[${PhpVersion} Installing] ************************************************** >>";
-	Downloadfile "${PhpVersion}.tar.gz" "http://${url}/${PhpVersion}.tar.gz";
+	Downloadfile "${PhpVersion}.tar.gz" "https://${url}/${PhpVersion}.tar.gz";
 	rm -rf $AMHDir/packages/untar/$PhpVersion;
 	echo "tar -zxf ${PhpVersion}.tar.gz ing...";
 	tar -zxf $AMHDir/packages/$PhpVersion.tar.gz -C $AMHDir/packages/untar;
@@ -368,7 +368,7 @@ function InstallNginx()
 {
 	# [dir] /usr/local/nginx
 	echo "[${NginxVersion} Installing] ************************************************** >>";
-	Downloadfile "${NginxVersion}.tar.gz" "http://${url}/${NginxVersion}.tar.gz";
+	Downloadfile "${NginxVersion}.tar.gz" "https://${url}/${NginxVersion}.tar.gz";
 	rm -rf $AMHDir/packages/untar/$NginxVersion;
 	echo "tar -zxf ${NginxVersion}.tar.gz ing...";
 	tar -zxf $AMHDir/packages/$NginxVersion.tar.gz -C $AMHDir/packages/untar;
@@ -413,7 +413,7 @@ function InstallPureFTPd()
 {
 	# [dir] /etc/	/usr/local/bin	/usr/local/sbin
 	echo "[${PureFTPdVersion} Installing] ************************************************** >>";
-	Downloadfile "${PureFTPdVersion}.tar.gz" "http://${url}/${PureFTPdVersion}.tar.gz";
+	Downloadfile "${PureFTPdVersion}.tar.gz" "https://${url}/${PureFTPdVersion}.tar.gz";
 	rm -rf $AMHDir/packages/untar/$PureFTPdVersion;
 	echo "tar -zxf ${PureFTPdVersion}.tar.gz ing...";
 	tar -zxf $AMHDir/packages/$PureFTPdVersion.tar.gz -C $AMHDir/packages/untar;
@@ -463,7 +463,7 @@ function InstallAMH()
 {
 	# [dir] /home/wwwroot/index/web
 	echo "[${AMHVersion} Installing] ************************************************** >>";
-	Downloadfile "${AMHVersion}.tar.gz" "http://${url}/${AMHVersion}.tar.gz";
+	Downloadfile "${AMHVersion}.tar.gz" "https://${url}/${AMHVersion}.tar.gz";
 	rm -rf $AMHDir/packages/untar/$AMHVersion;
 	echo "tar -xf ${AMHVersion}.tar.gz ing...";
 	tar -xf $AMHDir/packages/$AMHVersion.tar.gz -C $AMHDir/packages/untar;
@@ -499,7 +499,7 @@ function InstallAMS()
 {
 	# [dir] /home/wwwroot/index/web/ams
 	echo "[${AMSVersion} Installing] ************************************************** >>";
-	Downloadfile "${AMSVersion}.tar.gz" "http://${url}/${AMSVersion}.tar.gz";
+	Downloadfile "${AMSVersion}.tar.gz" "https://${url}/${AMSVersion}.tar.gz";
 	rm -rf $AMHDir/packages/untar/$AMSVersion;
 	echo "tar -xf ${AMSVersion}.tar.gz ing...";
 	tar -xf $AMHDir/packages/$AMSVersion.tar.gz -C $AMHDir/packages/untar;
@@ -554,11 +554,11 @@ rm -rf $AMHDir;
 	  echo "AMH/MYSQL Password:${AMHPass}";
 	  echo "Start time: ${StartDate}";
 	  echo "Completion time: $(date) (Use: $[($(date +%s)-StartDateSecond)/60] minute)";
-      echo 'More help please visit:https://git.oschina.net/renhao/amh';
+      echo 'More help please visit:https://github.com/birching01/amh42';
       echo '=========================================================================';
 else
       echo '                           Sorry!!!                                       ';
       echo '                   Failed to install AMH ++						         ';
-      echo '       Please contact us: https://git.oschina.net/renhao/amh           ';
+      echo '       Please contact us: https://github.com/birching01/amh42           ';
       echo '=========================================================================';
 fi;

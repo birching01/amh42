@@ -6,8 +6,8 @@ clear;
 
 CopyrightLogo='
                                       AMH ++
-                            Powered by renhao 2014-2016
-                https://git.oschina.net/renhao/amh All Rights Reserved
+                                    2014-2016
+                https://github.com/birching01/amh42 All Rights Reserved
 ===================================================================================';
 echo "$CopyrightLogo";
 
@@ -20,9 +20,9 @@ ConfirmInstall()
 	if [ "$selected" == 'Install AMH 4.2' ]; then
     wget http://amh.sh/file/AMH/4.2/amh.sh && chmod 775 amh.sh && ./amh.sh 2>&1 | tee amh.log;
   elif [ "$selected" == 'Install AMH ++ （CN)' ]; then
-		wget http://git.oschina.net/renhao/amh/raw/master/amhcn.sh && chmod 775 amhcn.sh && ./amhcn.sh 2>&1 | tee amhcn.log;
+		wget https://raw.githubusercontent.com/birching01/amh42/master/amhcn.sh && chmod 775 amhcn.sh && ./amhcn.sh 2>&1 | tee amhcn.log;
   elif [ "$selected" == 'Install AMH ++ (USA)' ]; then
-    wget http://git.oschina.net/renhao/amh/raw/master/amhusa.sh && chmod 775 amhusa.sh && ./amhusa.sh 2>&1 | tee amhusa.log;
+    wget https://raw.githubusercontent.com/birching01/amh42/master/amhusa.sh && chmod 775 amhusa.sh && ./amhusa.sh 2>&1 | tee amhusa.log;
 	else
 		return;
 	fi;

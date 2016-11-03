@@ -4,15 +4,18 @@
 安装时请尽量使用纯净系统
 
 ##优化内容
-*nginx 1.9.3
+*nginx 1.9.5
 
-*php 5.6.
+*php 5.6.14
+
+*mysql 5.5.34
+
 ##编译安装方式 (安装时间10至20分钟)
 ######1) 使用 root 账号登录 Linux 服务器。
 
 ######2) 执行 amh 安装脚本。
 ```shell
-wget http://git.oschina.net/renhao/amh/raw/master/install.sh && chmod 775 install.sh && ./install.sh 2>&1 | tee install.log
+wget https://github.com/birching01/amh42/blob/master/install.sh && chmod 775 install.sh && ./install.sh 2>&1 | tee install.log
 ```
 ######3) 根据提示输入选择1~4选项。
 
@@ -29,8 +32,8 @@ wget http://git.oschina.net/renhao/amh/raw/master/install.sh && chmod 775 instal
 ##有问题反馈
 在使用中有任何问题，欢迎反馈给我，可以用以下联系方式跟我交流
 
-* 邮件( vip#renhao.pw, 把#换成@)
-* QQ: 373943175
+* 
+* 
 
 ##提示：
 如遇权限问题，通过下面命令授予权限
