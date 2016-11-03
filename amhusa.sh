@@ -252,7 +252,7 @@ function Uninstall()
 function InstallLibiconv()
 {
 	echo "[${LibiconvVersion} Installing] ************************************************** >>";
-	Downloadfile "${LibiconvVersion}.tar.gz" "http://ftp.gnu.org/pub/gnu/libiconv/${LibiconvVersion}.tar.gz";
+	Downloadfile "${LibiconvVersion}.tar.gz" "https://${url}/${LibiconvVersion}.tar.gz";
 	rm -rf $AMHDir/packages/untar/$LibiconvVersion;
 	echo "tar -zxf ${LibiconvVersion}.tar.gz ing...";
 	tar -zxf $AMHDir/packages/$LibiconvVersion.tar.gz -C $AMHDir/packages/untar;
@@ -340,7 +340,7 @@ function InstallPhp()
 {
 	# [dir] /usr/local/php
 	echo "[${PhpVersion} Installing] ************************************************** >>";
-	Downloadfile "${PhpVersion}.tar.gz" "http://am1.php.net/distributions/${PhpVersion}.tar.gz";
+	Downloadfile "${PhpVersion}.tar.gz" "https://${url}/${PhpVersion}.tar.gz";
 	rm -rf $AMHDir/packages/untar/$PhpVersion;
 	echo "tar -zxf ${PhpVersion}.tar.gz ing...";
 	tar -zxf $AMHDir/packages/$PhpVersion.tar.gz -C $AMHDir/packages/untar;
@@ -380,7 +380,7 @@ function InstallNginx()
 {
 	# [dir] /usr/local/nginx
 	echo "[${NginxVersion} Installing] ************************************************** >>";
-	Downloadfile "${NginxVersion}.tar.gz" "http://nginx.org/download/${NginxVersion}.tar.gz";
+	Downloadfile "${NginxVersion}.tar.gz" "https://${url}/${NginxVersion}.tar.gz";
 	rm -rf $AMHDir/packages/untar/$NginxVersion;
 	echo "tar -zxf ${NginxVersion}.tar.gz ing...";
 	tar -zxf $AMHDir/packages/$NginxVersion.tar.gz -C $AMHDir/packages/untar;
@@ -425,7 +425,7 @@ function InstallPureFTPd()
 {
 	# [dir] /etc/	/usr/local/bin	/usr/local/sbin
 	echo "[${PureFTPdVersion} Installing] ************************************************** >>";
-	Downloadfile "${PureFTPdVersion}.tar.gz" "http://download.pureftpd.org/pub/pure-ftpd/releases/${PureFTPdVersion}.tar.gz";
+	Downloadfile "${PureFTPdVersion}.tar.gz" "https://${url}/${PureFTPdVersion}.tar.gz";
 	rm -rf $AMHDir/packages/untar/$PureFTPdVersion;
 	echo "tar -zxf ${PureFTPdVersion}.tar.gz ing...";
 	tar -zxf $AMHDir/packages/$PureFTPdVersion.tar.gz -C $AMHDir/packages/untar;
