@@ -15,7 +15,7 @@
 
 ######2) 执行 amh 安装脚本。
 ```shell
-wget https://github.com/birching01/amh42/blob/master/install.sh && chmod 775 install.sh && ./install.sh 2>&1 | tee install.log
+wget https://raw.githubusercontent.com/birching01/amh42/master/install.sh && chmod 775 install.sh && ./install.sh 2>&1 | tee install.log
 ```
 ######3) 根据提示输入选择1~4选项。
 
