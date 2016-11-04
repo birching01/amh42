@@ -1,0 +1,67 @@
+#!/bin/bash
+PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin;
+#loadURL
+url='https://raw.githubusercontent.com/birching01/amh42/master/module';
+#info
+function amh_module_info()
+{
+		echo 'AMH-ModuleName: kodexplorer 3.21 ';
+		echo 'AMH-ModuleDescription: 芒果云KODExplorer是一个公开源码的基于Web的在线文件管理、代码编辑器。它提供了类windows经典用户界面，一整套在线文件管理、文件预览、编辑、上传下载、在线解压缩、音乐播放功能。让你直接在浏览器端实现web开发、源码文件预览、网站部署的同时拥有与本地操作一样方便、快捷、安全的体验。';
+		echo 'AMH-ModuleButton: 安装/卸载';
+		echo 'AMH-ModuleDate: 2013-04-12';
+		echo 'AMH-ModuleAdmin: ./phpmyadmin358_amh/index.php';
+		echo 'AMH-ModuleWebSite: http://www.kalcaddle.com';
+		echo 'AMH-ModuleScriptBy: 芒果云KODExplorer';
+}
+
+#install
+function amh_module_install()
+{
+		if amh_module_status ; then
+				exit;
+		else
+				cd /usr/local/;
+				wget ${url}/down/phpMyAdmin-3.5.8-all-languages.zip;
+				unzip phpMyAdmin-3.5.8-all-languages.zip;
+				mv phpMyAdmin-3.5.8-all-languages /home/wwwroot/index/web/phpmyadmin358_amh;
+				sed -i "/ams=index/a\<input type=\"button\" value=\"phpMyAdmin-3.5.8\" onclick=\"WindowOpen('./phpmyadmin358_amh/index.php');\"/>"  /home/wwwroot/index/web/View/mysql.php;
+				amh_module_status;
+		fi;
+}
+
+#admin
+function amh_module_admin()
+{
+		if amh_module_status ; then
+				echo '[OK] phpMyAdmin-3.5.8 Management:  http://ip:8888/phpmyadmin358_amh/ ';
+		else
+				exit;
+		fi;
+}
+
+#uninstall
+function amh_module_uninstall()
+{
+		if amh_module_status ; then
+
+				rm -rf /home/wwwroot/index/web/phpmyadmin358_amh;
+				rm -f /usr/local/phpMyAdmin-3.5.8-all-languages.zip;
+				sed -i "/phpMyAdmin-3.5.8/d" /home/wwwroot/index/web/View/mysql.php;
+				echo '[OK] phpMyAdmin-3.5.8 Uninstall successful.';
+		else
+				exit;
+		fi;
+}
+
+#status
+function amh_module_status()
+{
+		if [ -d "/home/wwwroot/index/web/phpmyadmin358_amh" ]; then
+				echo '[OK] phpMyAdmin-3.5.8 is already installed.';
+				return 0;
+		else
+				echo '[Notice] phpMyAdmin-3.5.8 is not installed.';
+				return 1;
+		fi;
+}
+
