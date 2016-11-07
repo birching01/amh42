@@ -1,0 +1,61 @@
+#!/bin/bash
+PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin;
+#loadURL
+url='https://raw.githubusercontent.com/birching01/amh42/master/module';
+#info
+function amh_module_info()
+{
+		echo 'AMH-ModuleName: MyModule-1.0';
+		echo 'AMH-ModuleDescription: MyModule AMH面板模块开发入门实例。';
+		echo 'AMH-ModuleButton: 安装/卸载';
+		echo 'AMH-ModuleDate: 2013-03-16';
+		echo 'AMH-ModuleAdmin: ./index.php?c=MyModule';
+		echo 'AMH-ModuleWebSite: http://amysql.com';
+		echo 'AMH-ModuleScriptBy: Your name.';
+}
+
+#install
+function amh_module_install()
+{
+		if amh_module_status ; then
+				exit;
+		else
+				cd /root/amh/modules/MyModule-1.0;
+				\cp ./Controller/MyModule.php  /home/wwwroot/index/web/Controller/;
+				\cp ./View/MyModule_html.php  /home/wwwroot/index/web/View/;
+				amh_module_status;
+		fi;
+}
+
+#admin
+function amh_module_admin()
+{
+		if amh_module_status ; then
+				echo '[OK] MyModule No management options.';
+		else
+				exit;
+		fi;
+}
+
+#uninstall
+function amh_module_uninstall()
+{
+		if amh_module_status ; then
+				rm -f /home/wwwroot/index/web/Controller/MyModule.php /home/wwwroot/index/web/View/MyModule_html.php;
+				echo '[OK] MyModule Uninstall successful.';
+		else
+				exit;
+		fi;
+}
+
+#status
+function amh_module_status()
+{
+		if [ -f "/home/wwwroot/index/web/Controller/MyModule.php" ]; then
+				echo '[OK] MyModule is already installed.';
+				return 0;
+		else
+				echo '[Notice] MyModule is not installed.';
+				return 1;
+		fi;
+}
