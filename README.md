@@ -1,3 +1,4 @@
+
 #Amh AMH 4.2 - 4.5
 基于AMH 4.2（LNMP/Nginx虚拟主机面板）针对NGINX PHP MYSQL性能进行适当优化
 
@@ -34,7 +35,7 @@ screen -S amh
 
 *Centos 5 .x  和 Centos 6.x安装脚本
 ```shell
-wget https://raw.githubusercontent.com/birching01/amh42/master/install.sh && chmod 775 install.sh && ./install.sh 2>&1 | tee install.log 
+wget https://raw.githubusercontent.com/birching01/amh42/master/amh.sh && chmod 775 amh.sh && ./amh.sh 2>&1 | tee amh.log
 #Centos 7.x安装脚本
 #请先运行ifconfig，要是功能不全，请先yum安装
 yum -y install net-tools.x86_64
