@@ -19,18 +19,13 @@
 ######2) 执行 amh 安装脚本。
 ```shell
 yum install -y wget
-```
-```shell
+
 yum install -y vim
 ```
 强烈建议先运行screen,防止ssh中断
 ```shell
-apt-get install screen (debian)
-```
-```shell
-yum -y install screen (centos)
-```
-```shell
+apt-get install screen #debian
+yum -y install screen #centos
 screen -S amh
 ```
 更新curl为curl-7.49.1
@@ -39,17 +34,11 @@ screen -S amh
 
 *Centos 5 .x  和 Centos 6.x安装脚本
 ```shell
-wget https://raw.githubusercontent.com/birching01/amh42/master/install.sh && chmod 775 install.sh && ./install.sh 2>&1 | tee install.log```
-Centos 7.x安装脚本
-请先运行ifconfig，要是功能不全，请先yum安装
-```shell
+wget https://raw.githubusercontent.com/birching01/amh42/master/install.sh && chmod 775 install.sh && ./install.sh 2>&1 | tee install.log 
+#Centos 7.x安装脚本
+#请先运行ifconfig，要是功能不全，请先yum安装
 yum -y install net-tools.x86_64
 ```
-然后再运行安装脚本
-```shell
-
-```
-
 ###### 3)根据提示输入选择1~4选项。
 
 输入相应序号回车，接着输入MySQL与AMH密码即进入安装流程，安装过程大约需10至20分钟(以服务器性能为准)，最后如看到安装成功提示，说明系统已安装完成。
