@@ -36,8 +36,11 @@ screen -S amh
 *Centos 5 .x  和 Centos 6.x安装脚本
 ```shell
 wget https://raw.githubusercontent.com/birching01/amh42/master/amh.sh && chmod 775 amh.sh && ./amh.sh 2>&1 | tee amh.log
-#Centos 7.x安装脚本
-#请先运行ifconfig，要是功能不全，请先yum安装
+```
+**Centos 7.x安装脚本
+
+*请先运行ifconfig，要是功能不全，请先yum安装
+```shell
 yum -y install net-tools.x86_64
 ```
 ###### 3)根据提示输入选择1~4选项。
