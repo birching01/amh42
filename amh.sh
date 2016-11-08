@@ -4,9 +4,9 @@ export PATH
 
 clear;
 echo '================================================================';
-echo ' [LNMP/Nginx] Amysql Host - AMH 4.2 - 4.5)';
+echo ' [LNMP/Nginx] Amysql Host - AMH 4.2 (vpskk mod v45)';
 echo ' http://Amysql.com';
-echo ' https://github.com/birching01/amh42';
+echo ' http://www.sxsay.com';
 echo '================================================================';
 
 
@@ -45,12 +45,6 @@ NginxVersion='nginx-1.9.9';
 OpenSSLVersion='openssl-1.0.2d';
 NginxCachePurgeVersion='ngx_cache_purge-2.3';
 PureFTPdVersion='pure-ftpd-1.0.36';
-BoostVersion='boost_1_59_0'
-Conf='conf'
-
-#loadURL
-url='https://raw.githubusercontent.com/birching01/amh42/master/down';
-
 
 # Function List	*****************************************************************************
 function CheckSystem()
@@ -86,12 +80,12 @@ function CheckSystem()
 function ConfirmInstall()
 {
 	echo "[Notice] Confirm Install/Uninstall AMH? please select: (1~3)"
-	select selected in 'Install AMH 4.2 - 4.5' 'Uninstall AMH 4.2 - 4.5' 'Exit'; do break; done;
+	select selected in 'Install AMH 4.2' 'Uninstall AMH 4.2' 'Exit'; do break; done;
 	[ "$selected" == 'Exit' ] && echo 'Exit Install.' && exit;
 		
-	if [ "$selected" == 'Install AMH 4.2 - 4.5' ]; then
+	if [ "$selected" == 'Install AMH 4.2' ]; then
 		InstallModel='1';
-	elif [ "$selected" == 'Uninstall AMH 4.2 - 4.5' ]; then
+	elif [ "$selected" == 'Uninstall AMH 4.2' ]; then
 		Uninstall;
 	else
 		ConfirmInstall;
@@ -228,7 +222,7 @@ function Installcurl()
 if [ "$SysName" == 'centos' ]; then
 echo "[${Installcurl} Installing] ************************************************** >>";
    yum -y install gcc gcc-c++;
-   wget ${url}/${AMHcurl}.tar.gz;
+   wget https://raw.githubusercontent.com/birching01/amh42/master/down/${AMHcurl}.tar.gz;
    tar -zxvf ${AMHcurl}.tar.gz;
    cd ${AMHcurl};
    ./configure --prefix=/usr/local/curl;
@@ -240,7 +234,7 @@ echo "[${Installcurl} Installing] **********************************************
 else
    echo "[${Installcurl} Installing] ************************************************** >>";
    apt-get install -y gcc g++ cmake make;
-   wget ${url}/${AMHcurl}.tar.gz;
+   wget https://raw.githubusercontent.com/birching01/amh42/master/down/${AMHcurl}.tar.gz;
    tar -zxvf ${AMHcurl}.tar.gz;
    cd ${AMHcurl};
    ./configure --prefix=/usr/local/curl;
@@ -280,7 +274,7 @@ function InstallReady()
 	chmod +Rw /root/amh;
 
 	cd $AMHDir/packages;
-	wget ${url}/${conf}.zip;
+	wget https://raw.githubusercontent.com/birching01/amh42/master/down/conf.zip;
 	unzip conf.zip -d $AMHDir/conf;
 }
 
@@ -334,7 +328,7 @@ function Uninstall()
 function InstallLibiconv()
 {
 	echo "[${LibiconvVersion} Installing] ************************************************** >>";
-	Downloadfile "${LibiconvVersion}.tar.gz" "${url}/${LibiconvVersion}.tar.gz";
+	Downloadfile "${LibiconvVersion}.tar.gz" "https://raw.githubusercontent.com/birching01/amh42/master/down/${LibiconvVersion}.tar.gz";
 	rm -rf $AMHDir/packages/untar/$LibiconvVersion;
 	echo "tar -zxf ${LibiconvVersion}.tar.gz ing...";
 	tar -zxf $AMHDir/packages/$LibiconvVersion.tar.gz -C $AMHDir/packages/untar;
@@ -355,7 +349,7 @@ function InstallLibiconv()
 function InstallOpenSSL()
 {
 	echo "[${OpenSSLVersion} Installing] ************************************************** >>";
-	Downloadfile "${OpenSSLVersion}.tar.gz" "${url}/${OpenSSLVersion}.tar.gz";
+	Downloadfile "${OpenSSLVersion}.tar.gz" "https://raw.githubusercontent.com/birching01/amh42/master/down/${OpenSSLVersion}.tar.gz";
 	rm -rf $AMHDir/packages/untar/$OpenSSLVersion;
 	echo "tar -zxf ${OpenSSLVersion}.tar.gz ing...";
 	tar -zxf $AMHDir/packages/$OpenSSLVersion.tar.gz -C /usr/local;
@@ -367,7 +361,7 @@ function InstallMysql55()
 if [ "$confirm"  == '1' ]; then
 	# [dir] /usr/local/mysql/
 	echo "[${Mysql55Version} Installing] ************************************************** >>";
-	Downloadfile "${Mysql55Version}.tar.gz" "${url}/${Mysql55Version}.tar.gz";
+	Downloadfile "${Mysql55Version}.tar.gz" "https://raw.githubusercontent.com/birching01/amh42/master/down/${Mysql55Version}.tar.gz";
 	rm -rf $AMHDir/packages/untar/$Mysql55Version;
 	echo "tar -zxf ${Mysql55Version}.tar.gz ing...";
 	tar -zxf $AMHDir/packages/$Mysql55Version.tar.gz -C $AMHDir/packages/untar;
@@ -439,7 +433,7 @@ function InstallMysql56()
 if [ "$confirm"  == '2' ]; then
 	# [dir] /usr/local/mysql/
 	echo "[${Mysql56Version} Installing] ************************************************** >>";
-	Downloadfile "${Mysql56Version}.tar.gz" "${url}/${Mysql56Version}.tar.gz";
+	Downloadfile "${Mysql56Version}.tar.gz" "https://raw.githubusercontent.com/birching01/amh42/master/down/${Mysql56Version}.tar.gz";
 	rm -rf $AMHDir/packages/untar/$Mysql56Version;
 	echo "tar -zxf ${Mysql56Version}.tar.gz ing...";
 	tar -zxf $AMHDir/packages/$Mysql56Version.tar.gz -C $AMHDir/packages/untar;
@@ -511,10 +505,10 @@ function InstallMysql57()
 {
 if [ "$confirm"  == '3' ]; then
     cd $AMHDir/packages/
-    wget ${url}/${boost}.tar.gz;
+    wget https://raw.githubusercontent.com/birching01/amh42/master/down/boost_1_59_0.tar.gz;
 	# [dir] /usr/local/mysql/
 	echo "[${Mysql57Version} Installing] ************************************************** >>";
-	Downloadfile "${Mysql57Version}.tar.gz" "${url}/${Mysql57Version}.tar.gz";
+	Downloadfile "${Mysql57Version}.tar.gz" "https://raw.githubusercontent.com/birching01/amh42/master/down/${Mysql57Version}.tar.gz";
 	rm -rf $AMHDir/packages/untar/$Mysql57Version;
 	echo "tar -zxf ${Mysql57Version}.tar.gz ing...";
 	tar -zxf $AMHDir/packages/$Mysql57Version.tar.gz -C $AMHDir/packages/untar;
@@ -594,7 +588,7 @@ function InstallMariadb55()
 if [ "$confirm"  == '4' ]; then
 	# [dir] /usr/local/mysql/
 	echo "[${Mariadb55Version} Installing] ************************************************** >>";
-	Downloadfile "${Mariadb55Version}.tar.gz" "${url}/${Mariadb55Version}.tar.gz";
+	Downloadfile "${Mariadb55Version}.tar.gz" "https://raw.githubusercontent.com/birching01/amh42/master/down/${Mariadb55Version}.tar.gz";
 	rm -rf $AMHDir/packages/untar/$Mariadb55Version;
 	echo "tar -zxf ${Mariadb55Version}.tar.gz ing...";
 	tar -zxf $AMHDir/packages/$Mariadb55Version.tar.gz -C $AMHDir/packages/untar;
@@ -666,7 +660,7 @@ function InstallMariadb10()
 if [ "$confirm"  == '5' ]; then
 	# [dir] /usr/local/mysql/
 	echo "[${Mariadb10Version} Installing] ************************************************** >>";
-	Downloadfile "${Mariadb10Version}.tar.gz" "${url}/${Mariadb10Version}.tar.gz";
+	Downloadfile "${Mariadb10Version}.tar.gz" "https://raw.githubusercontent.com/birching01/amh42/master/down/${Mariadb10Version}.tar.gz";
 	rm -rf $AMHDir/packages/untar/$Mariadb10Version;
 	echo "tar -zxf ${Mariadb10Version}.tar.gz ing...";
 	tar -zxf $AMHDir/packages/$Mariadb10Version.tar.gz -C $AMHDir/packages/untar;
@@ -737,7 +731,7 @@ function InstallPhp()
 {
 	# [dir] /usr/local/php
 	echo "[${Php56Version} Installing] ************************************************** >>";
-	Downloadfile "${Php56Version}.tar.gz" "${url}/${Php56Version}.tar.gz";
+	Downloadfile "${Php56Version}.tar.gz" "https://raw.githubusercontent.com/birching01/amh42/master/down/${Php56Version}.tar.gz";
 	rm -rf $AMHDir/packages/untar/$Php56Version;
 	echo "tar -zxf ${Php56Version}.tar.gz ing...";
 	tar -zxf $AMHDir/packages/$Php56Version.tar.gz -C $AMHDir/packages/untar;
@@ -782,7 +776,7 @@ function InstallPhp53()
 {
 	# [dir] /usr/local/php5.3
 	echo "[${Php53Version} Installing] ************************************************** >>";
-	Downloadfile "${Php53Version}.tar.gz" "${url}/${Php53Version}.tar.gz";
+	Downloadfile "${Php53Version}.tar.gz" "https://raw.githubusercontent.com/birching01/amh42/master/down/${Php53Version}.tar.gz";
 	rm -rf $AMHDir/packages/untar/$Php53Version;
 	echo "tar -zxf ${Php56Version}.tar.gz ing...";
 	tar -zxf $AMHDir/packages/$Php53Version.tar.gz -C $AMHDir/packages/untar;
@@ -808,7 +802,7 @@ function InstallPhp54()
 {
 	# [dir] /usr/local/php5.4
 	echo "[${Php54Version} Installing] ************************************************** >>";
-	Downloadfile "${Php54Version}.tar.gz" "${url}/${Php54Version}.tar.gz";
+	Downloadfile "${Php54Version}.tar.gz" "https://raw.githubusercontent.com/birching01/amh42/master/down/${Php54Version}.tar.gz";
 	rm -rf $AMHDir/packages/untar/$Php54Version;
 	echo "tar -zxf ${Php54Version}.tar.gz ing...";
 	tar -zxf $AMHDir/packages/$Php54Version.tar.gz -C $AMHDir/packages/untar;
@@ -834,7 +828,7 @@ function InstallPhp55()
 {
 	# [dir] /usr/local/php5.5
 	echo "[${Php55Version} Installing] ************************************************** >>";
-	Downloadfile "${Php55Version}.tar.gz" "${url}/${Php55Version}.tar.gz";
+	Downloadfile "${Php55Version}.tar.gz" "https://raw.githubusercontent.com/birching01/amh42/master/down/${Php55Version}.tar.gz";
 	rm -rf $AMHDir/packages/untar/$Php55Version;
 	echo "tar -zxf ${Php55Version}.tar.gz ing...";
 	tar -zxf $AMHDir/packages/$Php55Version.tar.gz -C $AMHDir/packages/untar;
@@ -860,7 +854,7 @@ function InstallPhp70()
 {
 	# [dir] /usr/local/php7.0
 	echo "[${Php70Version} Installing] ************************************************** >>";
-	Downloadfile "${Php70Version}.tar.gz" "${url}/${Php70Version}.tar.gz";
+	Downloadfile "${Php70Version}.tar.gz" "https://raw.githubusercontent.com/birching01/amh42/master/down/${Php70Version}.tar.gz";
 	rm -rf $AMHDir/packages/untar/$Php70Version;
 	echo "tar -zxf ${Php70Version}.tar.gz ing...";
 	tar -zxf $AMHDir/packages/$Php70Version.tar.gz -C $AMHDir/packages/untar;
@@ -886,8 +880,8 @@ function InstallNginx()
 {
 	# [dir] /usr/local/nginx
 	echo "[${NginxVersion} Installing] ************************************************** >>";
-	Downloadfile "${NginxVersion}.tar.gz" "${url}/${NginxVersion}.tar.gz";
-	Downloadfile "${NginxCachePurgeVersion}.tar.gz" "${url}/${NginxCachePurgeVersion}.tar.gz";
+	Downloadfile "${NginxVersion}.tar.gz" "https://raw.githubusercontent.com/birching01/amh42/master/down/${NginxVersion}.tar.gz";
+	Downloadfile "${NginxCachePurgeVersion}.tar.gz" "https://raw.githubusercontent.com/birching01/amh42/master/down/${NginxCachePurgeVersion}.tar.gz";
 	rm -rf $AMHDir/packages/untar/$NginxVersion;
 	echo "tar -zxf ${NginxVersion}.tar.gz ing...";
 	tar -zxf $AMHDir/packages/$NginxVersion.tar.gz -C $AMHDir/packages/untar;
@@ -943,7 +937,7 @@ function InstallPureFTPd()
 {
 	# [dir] /etc/	/usr/local/bin	/usr/local/sbin
 	echo "[${PureFTPdVersion} Installing] ************************************************** >>";
-	Downloadfile "${PureFTPdVersion}.tar.gz" "${url}/${PureFTPdVersion}.tar.gz";
+	Downloadfile "${PureFTPdVersion}.tar.gz" "https://raw.githubusercontent.com/birching01/amh42/master/down/${PureFTPdVersion}.tar.gz";
 	rm -rf $AMHDir/packages/untar/$PureFTPdVersion;
 	echo "tar -zxf ${PureFTPdVersion}.tar.gz ing...";
 	tar -zxf $AMHDir/packages/$PureFTPdVersion.tar.gz -C $AMHDir/packages/untar;
@@ -993,7 +987,7 @@ function InstallAMH()
 {
 	# [dir] /home/wwwroot/index/web
 	echo "[${AMHVersion} Installing] ************************************************** >>";
-	Downloadfile "${AMHVersion}.tar.gz" "${url}/${AMHVersion}.tar.gz";
+	Downloadfile "${AMHVersion}.tar.gz" "https://raw.githubusercontent.com/birching01/amh42/master/down/${AMHVersion}.tar.gz";
 	rm -rf $AMHDir/packages/untar/$AMHVersion;
 	echo "tar -xf ${AMHVersion}.tar.gz ing...";
 	tar -xf $AMHDir/packages/$AMHVersion.tar.gz -C $AMHDir/packages/untar;
@@ -1029,7 +1023,7 @@ function InstallAMS()
 {
 	# [dir] /home/wwwroot/index/web/ams
 	echo "[${AMSVersion} Installing] ************************************************** >>";
-	Downloadfile "${AMSVersion}.tar.gz" "${url}/${AMSVersion}.tar.gz";
+	Downloadfile "${AMSVersion}.tar.gz" "https://raw.githubusercontent.com/birching01/amh42/master/down/${AMSVersion}.tar.gz";
 	rm -rf $AMHDir/packages/untar/$AMSVersion;
 	echo "tar -xf ${AMSVersion}.tar.gz ing...";
 	tar -xf $AMHDir/packages/$AMSVersion.tar.gz -C $AMHDir/packages/untar;
@@ -1090,7 +1084,7 @@ fi;
 rm -rf $AMHDir;
 
 echo '================================================================';
-	echo '[AMH] Congratulations, AMH 4.2 - 4.5 install completed.';
+	echo '[AMH] Congratulations, AMH 4.2 install completed.';
 	echo "AMH Management: http://${Domain}:8888";
 	echo 'User:admin';
 	echo "Password:${AMHPass}";
@@ -1122,6 +1116,6 @@ echo '================================================================';
 	echo 'More help please visit:http://amysql.com';
 echo '================================================================';
 else
-	echo 'Sorry, Failed to install AMH 4.2 - 4.5';
+	echo 'Sorry, Failed to install AMH';
 	echo 'Please contact us: http://amysql.com';
 fi;
